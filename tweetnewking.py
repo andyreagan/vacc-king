@@ -11,11 +11,11 @@ jobs = argv[2]
 tweet='all hail the newest VACC king!! '+king+' has '+jobs+' jobs out there!'
 
 # store the keys somewhere (so I can share this script)
-f = open('keys.txt','r')
-APP_KEY = f.readline()
-APP_SECRET = f.readline()
-OAUTH_TOKEN = f.readline()
-OAUTH_TOKEN_SECRET = f.readline()
+f = open('keys','r')
+APP_KEY = f.readline().rstrip()
+APP_SECRET = f.readline().rstrip()
+OAUTH_TOKEN = f.readline().rstrip()
+OAUTH_TOKEN_SECRET = f.readline().rstrip()
 f.close()
 
 from twython import Twython, TwythonError
