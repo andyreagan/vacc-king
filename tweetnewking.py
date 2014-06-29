@@ -2,7 +2,7 @@
 #
 # tweetnewking.py
 #
-# simply tweet the new VACC hogger
+# simply tweet the new VACC king
 
 from sys import argv
 king = argv[1]

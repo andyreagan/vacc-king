@@ -2,20 +2,22 @@
 
 cd  /users/a/r/areagan/fun/twitter/VACC-king
 
+tweet="python tweetnewking.py"
+if ! cmp tweetnewking{,BAGROW}.py >/dev/null 2>&1; then tweet="python tweetnewkingBAGROW.py"; fi
+
 newking=$(showq | awk '{print $2;}' | sort | uniq -c | sort -n | tail -n 1 | awk '{print $2;}' | tr -d ' ')
 jobs=$(showq | awk '{print $2;}' | sort | uniq -c | sort -n | tail -n 1 | awk '{print $1;}' | tr -d ' ')
 
 oldking=$(cat oldking.txt)
+echo $(date) >> run-minutely.log
 
 if [ "$oldking" != "$newking" ]; then
-  echo $(date) >> run-minutely.log
   echo "new king!" >> run-minutely.log
-  echo "tweeting about it!" >> run-minutely.log
   echo "$newking has $jobs jobs" >> run-minutely.log
   echo $newking > oldking.txt
-  python tweetnewking.py $newking $jobs
+  $tweet $newking $jobs
 else
-  echo $(date) >> run-minutely.log
   echo "no new king" >> run-minutely.log
   echo "$oldking has $jobs jobs" >> run-minutely.log
 fi
+
