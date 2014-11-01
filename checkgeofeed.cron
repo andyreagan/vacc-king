@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd  /users/a/r/areagan/fun/twitter/VACC-king
+
+tweet="python checkgeofeed.py"
+
+if [ -f /users/j/r/jrwillia/scratch/data/twitter/$(date +%Y/%Y-%m-%d/%Y-%m-%d-%H-%M.zip -d "1 hour ago") ]
+then 
+    echo "yes file"
+else 
+    echo "no file"
+    echo "tweeting"
+    $tweet
+fi
+
+
+
