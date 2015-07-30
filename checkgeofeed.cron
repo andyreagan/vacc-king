@@ -10,7 +10,9 @@ then
 else 
     echo "no file"
     echo "tweeting"
+    . pyenv/bin/activate
     $tweet
+    deactivate
 fi
 
 

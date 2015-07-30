@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cd  /users/a/r/areagan/fun/twitter/VACC-king
 
 tweet="python tweetnewking.py"
@@ -15,7 +14,9 @@ if [ "$oldking" != "$newking" ]; then
   echo "new king!" >> run-minutely.log
   echo "$newking has $jobs jobs" >> run-minutely.log
   echo $newking > oldking.txt
+  . pyenv/bin/activate
   $tweet $newking $jobs
+  deactivate
 else
   echo "no new king" >> run-minutely.log
   echo "$oldking has $jobs jobs" >> run-minutely.log
